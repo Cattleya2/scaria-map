@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>CodePen - Fetch and display on map</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+<script src="https://cdn.tailwindcss.com"></script><style type="text/tailwindcss">
+  @layer utilities {
+      .content-auto {
+        content-visibility: auto;
+      }
+    }
+</style>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            clifford: '#da373d',
+          }
+        }
+      }
+    }
+  </script>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script><link rel='stylesheet' href='https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.css'>
+<link rel='stylesheet' href='https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.Default.css'><link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div class="h-screen w-screen p-4 m-auto">
+  <h1 class="text-center text-3xl p-4">The Map</h1>
+  <div class="w-full">
+    <div id="theMap"></div>
+  </div>
+</div>
+<!-- partial -->
+  <script src='https://unpkg.com/leaflet.markercluster@1.4.1/dist/leaflet.markercluster.js'></script><script  src="./script.js"></script>
+
+</body>
+</html>
