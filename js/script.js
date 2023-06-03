@@ -1,7 +1,7 @@
 const url =
   "https://opensheet.elk.sh/1PnOhL_PM_Q5RRdREONf2I0Ni-OKBUj9nijPQzOkruhw/DataBrute";
 const miKollectAttribution =
-  '&copy; <a href="https://www.mikollect.com">miKollect</a> ';
+  'Build with <span style="color:red;">&hearts;</span> by <a href="https://www.mikollect.com/"> &copy; miKollect</a>';
 // Tiles
 const osm = L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
   attribution:
@@ -84,15 +84,6 @@ const layerControl = L.control.layers(baseMaps, overlayMaps, {
 });
 layerControl.addTo(myMap);
 
-// Making a marker with a custom icon
-/*const myIcon = L.icon({
-  iconUrl: "iss200.png",
-  iconSize: [50, 32],
-  iconAnchor: [25, 16]
-});
-let marker = L.marker([0, 0], { icon: myIcon }).addTo(myMap);*/
-//let firstTime = true;
-
 const fetchData = async () => {
   try {
     const reponseAPI = await fetch(url);
@@ -120,10 +111,6 @@ const showOnMap = (data) => {
 };
 
 fetchData();
-
-// Legend
-//var legend = L.control({ position: "bottomright" });
-// legend.addTo(myMap);
 setInterval(fetchData, 80000);
 
 // Scale
@@ -145,11 +132,36 @@ const setFullscreen = new L.Control.Fullscreen({
 myMap.addControl(setFullscreen);
 
 // Minimap
-var miniMap = new L.Control.MiniMap(osm, {
+const osm2 = new L.tileLayer(
+  "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+  {
+    minZoom: 0,
+    maxZoom: 13,
+    attribution:
+      '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+  }
+);
+var miniMap = new L.Control.MiniMap(osm2, {
   toggleDisplay: true,
-  zoomLevelOffset: -3,
-  width: 300,
-  height: 200,
-}).addTo(map);
-// const miniMap = new L.Control.MiniMap(osm, { toggleDisplay: true });
+  position: "bottomleft",
+  // zoomLevelOffset: -3,
+  //  width: 300,
+  //  height: 200,
+});
 miniMap.addTo(myMap);
+
+// Hash 
+var hash = new L.Hash(myMap);
+// Credits Logo
+const miCredits = new L.controlCredits({
+  imageurl: 'assets/img/Logo-mikollect-Officiel-carre-plein.png',
+  tooltip: 'With <span style="color:red;">&hearts;</span> by <a href="https://www.mikollect.com/"> &copy; miKollect</a>',
+  width: '45px',
+  height: '45px',
+  expandcontent: 'Digital Solutions For amazing things with data. <br/> We build Apps, setup DataCollection tools and <br/>provide supports for your projects.<br/> Visit us : <a href="https://www.miKollect.com/" target="_blank">miKollect</a>',
+  position: "bottomright",
+})
+miCredits.addTo(myMap);
+// Legend
+//var legend = L.control({ position: "bottomright" });
+// legend.addTo(myMap);
