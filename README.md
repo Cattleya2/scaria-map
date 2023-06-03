@@ -1,4 +1,7 @@
 # scaria-map
 
 ## License
-this map is 
+This map show all features collected on the Scaria Project
+
+
+© map built with ❤️ by [miKollect](https://miKollect.com)
