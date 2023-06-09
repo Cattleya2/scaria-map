@@ -59,7 +59,7 @@ const clusterMarkerOptions = {
 };
 
 const mapCenter = [6.3895043, 2.4307995];
-const myMap = L.map("theMap", { center: mapCenter, zoom: 16, layers: [osm] });
+const myMap = L.map("theMap", { center: mapCenter, zoom: 4, layers: [osm] });
 var featureGroup = L.markerClusterGroup({
   spiderfyOnMaxZoom: true,
   showCoverageOnHover: true,
