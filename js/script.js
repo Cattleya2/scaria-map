@@ -111,7 +111,7 @@ const showOnMap = (data) => {
 };
 
 fetchData();
-setInterval(fetchData, 80000);
+//setInterval(fetchData, 80000);
 
 // Scale
 const scale = new L.control.scale({
